@@ -36,6 +36,8 @@ public class Lab_09_ArrayStuff {
             Scanner input = new Scanner(System.in);
             int userRangedInt = SafeInput.getRangedInt(input, "Enter a number between 1 and 100", 1, 100);
             int userIntFound = 0; //Used to track how many times a number was found in the array
+            int min = 100;
+            int max = 0;
 
         //Loop through the array and add 1 to userIntFound whenever one of the points is equal to the user's number
         for (int i = 0; i < dataPoints.length; i++) {
@@ -64,7 +66,36 @@ public class Lab_09_ArrayStuff {
             System.out.println("Your number, " + userNewRangedInt + " was found in the array at positon " + arrayPosFinder);
         }
 
+        //find the min and max
+        for (int i = 0; i < dataPoints.length; i++) {
+            if (dataPoints[i] < min) {
+                min = dataPoints[i];
+            }
+            if (dataPoints[i] > max) {
+                max = dataPoints[i];
+            }
+        }
+
+        System.out.println("The smallest number in the array is " + min);
+        System.out.println("The highest number in the array is " + max);
 
 
+        System.out.println("Average of dataPoint is: " +  getAverage(dataPoints));
+
+
+    }
+
+    public static double getAverage(int[] values)
+    {
+        double sum = 0;
+        double average = 0;
+
+        //Get the sum of each part of the array
+        for (int i = 0; i < values.length; i++) {
+            sum = sum + values[i];
+        }
+        average = sum / values.length; //use the newly found sum to calculate average
+        //output
+        return average;
     }
 }
