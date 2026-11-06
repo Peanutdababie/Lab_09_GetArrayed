@@ -32,23 +32,38 @@ public class Lab_09_ArrayStuff {
 
 
         //PART 2
-        //declarations
+        //declarations part 2
             Scanner input = new Scanner(System.in);
             int userRangedInt = SafeInput.getRangedInt(input, "Enter a number between 1 and 100", 1, 100);
             int userIntFound = 0; //Used to track how many times a number was found in the array
 
-            //Loop through the array and add 1 to userIntFound whenever one of the points is equal to the user's number
-            for (int i = 0; i < dataPoints.length; i++) {
-                if (dataPoints[i] == userRangedInt) {
-                    userIntFound += 1;
-                }
+        //Loop through the array and add 1 to userIntFound whenever one of the points is equal to the user's number
+        for (int i = 0; i < dataPoints.length; i++) {
+            if (dataPoints[i] == userRangedInt) {
+                userIntFound += 1;
             }
-            //output : If the user's number could not be located, then userIntFound will be 0
-            if (userIntFound == 0){
-                System.out.println("Looks like your number was never in the array");
-            }else{
-                System.out.println("Hey! your number, " + userRangedInt + " was in the array " + userIntFound + " time(s)!");
+        }
+        //output : If the user's number could not be located, then userIntFound will be 0
+        if (userIntFound == 0){
+            System.out.println("Looks like your number was never in the array");
+        }else{
+            System.out.println("Hey! your number, " + userRangedInt + " was in the array " + userIntFound + " time(s)!");
+        }
+
+        int userNewRangedInt = SafeInput.getRangedInt(input, "Enter another number between 1 and 100", 1, 100);
+        int arrayPosFinder = -1;
+        for (int i = 0; i < dataPoints.length; i++) {
+            if (dataPoints[i] == userNewRangedInt) {
+                arrayPosFinder = i;
+                break;
             }
+        }
+        if (arrayPosFinder == -1){
+            System.out.println("Looks like your number was never in the array");
+        }else{
+            System.out.println("Your number, " + userNewRangedInt + " was found in the array at positon " + arrayPosFinder);
+        }
+
 
 
     }
